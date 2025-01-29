@@ -1,0 +1,6 @@
+1. numpy
+2. matplotlib
+3. pandas
+4. seaborn
+5. Babel
+6. streamlit

@@ -19,13 +19,14 @@ start_date = st.sidebar.date_input("Tanggal Mulai", default_start_date)
 end_date = st.sidebar.date_input("Tanggal Akhir", default_end_date)
 
 # Filter data berdasarkan tanggal
-filtered_data = data[(data["order_purchase_timestamp"].dt.date >= start_date) & (data["order_purchase_timestamp"].dt.date <= end_date)]
+filtered_data = data[(data["order_purchase_timestamp"].dt.date >= start_date) & 
+                     (data["order_purchase_timestamp"].dt.date <= end_date)]
 
 # Set up Streamlit app
 st.title("Proyek Analisis Data: E-Commerce Public Dataset")
 
-# Pertanyaan 1 : Kategori produk apa yang paling banyak dan paling sedikit terjual/dibeli?
-st.header("Pertanyaan 1 : Kategori produk apa yang paling banyak dan paling sedikit terjual/dibeli?")
+# Pertanyaan 1: Kategori produk apa yang paling banyak dan paling sedikit terjual/dibeli?
+st.header("Pertanyaan 1: Kategori produk apa yang paling banyak dan paling sedikit terjual/dibeli?")
 category_orders = filtered_data["product_category_name_english"].value_counts()
 
 # 5 kategori produk dengan penjualan tertinggi
@@ -50,11 +51,13 @@ with col2:
     ax.set_xlabel("Order Count")
     st.pyplot(fig)
 
-# Question 2: Sales and Revenue Performance
+# Pertanyaan 2: Performa Penjualan dan Revenue
 st.header("Bagaimana Performa Penjualan dan Revenue Perusahaan pada tahun 2017? Apakah terdapat pola atau tren tertentu?")
 
-# Filter data untuk tahun yang dipilih
+# Filter data berdasarkan tanggal yang dipilih
 filtered_data["Month"] = filtered_data["order_purchase_timestamp"].dt.month
+
+# Group by month
 monthly_performance = filtered_data.groupby("Month").agg({"price": "sum", "payment_value": "sum"})
 
 # Plot sales and revenue

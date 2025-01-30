@@ -51,7 +51,7 @@ with col2:
     st.pyplot(fig)
 
 # Question 2: Sales and Revenue Performance
-st.header("Bagaimana Performa Penjualan dan Revenue Perusahaan?")
+st.header("Bagaimana Performa Penjualan dan Revenue Perusahaan pada tahun 2017? Apakah terdapat pola atau tren tertentu?")
 
 # Filter data untuk tahun yang dipilih
 filtered_data["Month"] = filtered_data["order_purchase_timestamp"].dt.month
@@ -72,4 +72,4 @@ ax.set_ylabel("Amount ($)")
 ax.legend()
 st.pyplot(fig)
 
-st.write("Jumlah pesanan dan revenue mengalami perubahan berdasarkan rentang tanggal yang dipilih. Dengan analisis lebih lanjut, kita dapat menentukan pola atau tren yang muncul pada periode tertentu.")
+st.write("Jumlah pesanan dan revenue pada tahun 2017 secara garis besar mengalami kenaikan. Penurunan pesanan hanya terjadi pada bulan April, Juni dan Desember, sedangkan untuk penurunan revenue terjadi pada bulan Aprl, Juni, dan Desember. Berdasarkan grafik diatas dapat disimpulkan bahwa penurunan jumlah pesanan dapat memengaruhi pendapatan (pendapatan juga ikut turun). Penurunan tersebut bisa terjadi kemungkinan karena faktor pasar maupun musim.")
